@@ -165,7 +165,6 @@ body.light .cal-cell.no-study{background:#e8eaf2;color:#b0b8d0}
 .cym-cell.has-study{color:#fff}
 .cym-cell.today{outline:1.5px solid var(--accent);outline-offset:0}
 
-
 /* ─── MURAL ─── */
 .mural-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .mural-card{background:var(--surface-1);border:1px solid var(--border);border-radius:12px;padding:14px;transition:border-color .15s}
@@ -309,7 +308,6 @@ body.light .cal-cell.no-study{background:#e8eaf2;color:#b0b8d0}
 </head>
 <body>
 
-<!-- ════ LOGIN ════ -->
 <div id="login-screen">
   <div class="login-card">
     <div class="login-logo"><i class="ti ti-book-2"></i><div class="login-logo-title">Guia de Estudos</div></div>
@@ -335,11 +333,10 @@ body.light .cal-cell.no-study{background:#e8eaf2;color:#b0b8d0}
       <button class="login-btn" onclick="doCadastro()"><i class="ti ti-user-plus"></i> Criar conta</button>
       <div class="login-hint">Já tem conta? <span class="link-btn" onclick="showLogin()">Entrar</span></div>
     </div>
-    <div class="login-hint" style="margin-top:10px">Dados salvos apenas neste navegador.</div>
+    <div class="login-hint" style="margin-top:10px">Dados salvos localmente e na nuvem.</div>
   </div>
 </div>
 
-<!-- ════ HOME ════ -->
 <div id="home-screen">
   <div class="home-topbar">
     <div class="home-logo">
@@ -350,7 +347,6 @@ body.light .cal-cell.no-study{background:#e8eaf2;color:#b0b8d0}
       </div>
     </div>
     <div class="home-actions">
-      <!-- Foguinho da Home -->
       <div class="foguinho-box" title="Dias contínuos sem zerar">
         <i id="foguinho-icon-home" class="ti ti-flame"></i>
         <span id="foguinho-num-home">0</span>
@@ -418,7 +414,6 @@ body.light .cal-cell.no-study{background:#e8eaf2;color:#b0b8d0}
   </div>
 </div>
 
-<!-- ════ APP SHELL ════ -->
 <div id="app-shell">
 <div class="app">
   <div class="sidebar" id="sidebar">
@@ -428,7 +423,6 @@ body.light .cal-cell.no-study{background:#e8eaf2;color:#b0b8d0}
           <div class="logo-title"><i class="ti ti-book-2"></i> <span id="sidebar-section-title">Guia</span></div>
           <div class="logo-sub" id="sidebar-section-sub">—</div>
         </div>
-        <!-- Foguinho da Sidebar -->
         <div class="foguinho-box" style="padding: 4px 8px; font-size: 12px; background: transparent; border: none;" title="Dias sem zerar">
           <i id="foguinho-icon-sb" class="ti ti-flame"></i>
           <span id="foguinho-num-sb">0</span>
@@ -450,7 +444,6 @@ body.light .cal-cell.no-study{background:#e8eaf2;color:#b0b8d0}
   </div>
   <div class="main" id="main-area">
 
-    <!-- ── CALENDÁRIO ── -->
     <div class="tab-content" id="tab-calendario">
       <div class="page-header"><div class="page-title">Calendário de estudos</div><div class="page-sub" id="cal-subtitle">Acompanhe seus dias</div></div>
       <div class="stats-row">
@@ -496,13 +489,11 @@ body.light .cal-cell.no-study{background:#e8eaf2;color:#b0b8d0}
       <input type="file" id="cal-img-input" accept="image/*" style="display:none" onchange="addCalImg(this)">
     </div>
 
-    <!-- ── MURAL ── -->
     <div class="tab-content" id="tab-mural">
       <div class="page-header"><div class="page-title">Mural do mês</div><div class="page-sub">O que você fez em cada dia</div></div>
       <div class="mural-grid" id="mural-grid"><div class="empty-state"><i class="ti ti-mood-empty"></i><p>Nenhum dia registrado ainda.</p></div></div>
     </div>
 
-    <!-- ── IA CHAT ── -->
     <div class="tab-content" id="tab-ia">
       <div class="page-header"><div class="page-title">Agente de IA — Registrar dia</div><div class="page-sub">Responda as perguntas e tudo é salvo automaticamente</div></div>
       <div class="chat-layout">
@@ -522,7 +513,6 @@ body.light .cal-cell.no-study{background:#e8eaf2;color:#b0b8d0}
       </div>
     </div>
 
-    <!-- ── CONTEÚDOS ── -->
     <div class="tab-content" id="tab-conteudos">
       <div class="page-header"><div class="page-title">Conteúdos</div><div class="page-sub">Marque o que já estudou</div></div>
       <div class="content-cols">
@@ -551,7 +541,6 @@ body.light .cal-cell.no-study{background:#e8eaf2;color:#b0b8d0}
       </div>
     </div>
 
-    <!-- ── MAPAS MENTAIS ── -->
     <div class="tab-content" id="tab-mapas">
       <div class="mapas-header">
         <div class="page-header" style="margin-bottom:0"><div class="page-title">Mapas mentais</div><div class="page-sub">Cole ou suba imagens</div></div>
@@ -564,19 +553,15 @@ body.light .cal-cell.no-study{background:#e8eaf2;color:#b0b8d0}
       </div>
     </div>
 
-    <!-- ── INFOGRÁFICO POR ÁREA E PAINEL GERAL (REFEITOS) ── -->
     <div class="tab-content" id="tab-infografico">
       <div class="page-header">
         <div class="page-title" id="info-area-title">Infográfico Dashboard</div>
         <div class="page-sub" id="info-area-sub">Painel visual de evolução (Referência)</div>
       </div>
       
-      <!-- INÍCIO DO DASHBOARD (ESTILO DA IMAGEM) -->
       <div class="dash-wrapper">
         <div class="dash-grid">
-          <!-- Coluna Principal -->
           <div class="dash-col-main">
-             <!-- Cartões de Topo -->
              <div class="dash-row-cards">
                 <div class="dash-card dark-card">
                    <div class="dc-title">Horas Acumuladas</div>
@@ -600,29 +585,24 @@ body.light .cal-cell.no-study{background:#e8eaf2;color:#b0b8d0}
                 </div>
              </div>
              
-             <!-- Gráfico de Barras -->
              <div class="dash-card">
                 <div class="dc-title">Resultados de Horas vs Questões por Área</div>
                 <div class="dash-badge">Check Now</div>
                 <div class="sim-bar-container" id="img-bars">
-                   <!-- Injetado via JS -->
-                </div>
+                   </div>
              </div>
              
-             <!-- Gráfico de Onda/Calendário -->
              <div class="dash-card" style="display:flex; justify-content:space-between; gap:20px; align-items:flex-end;">
                 <div style="flex:1; position:relative;">
                   <div style="display:flex; gap:12px; margin-bottom:10px;">
                      <div style="font-size:10px; color:#666; font-weight:600;"><i class="ti ti-circle-filled" style="color:#f49e11; font-size:8px;"></i> Horas Mensais</div>
                      <div style="font-size:10px; color:#666; font-weight:600;"><i class="ti ti-circle-filled" style="color:#153250; font-size:8px;"></i> Consistência</div>
                   </div>
-                  <!-- Simulação do Gráfico de Área -->
                   <svg viewBox="0 0 400 100" style="width:100%; height:80px; display:block;">
                      <path d="M0,80 C40,40 80,100 140,50 C200,0 260,90 320,40 C360,10 400,70 400,70 L400,100 L0,100 Z" fill="rgba(244, 158, 17, 0.4)"></path>
                      <path d="M0,90 C50,60 100,110 160,70 C220,30 280,80 400,50 L400,100 L0,100 Z" fill="rgba(21, 50, 80, 0.2)"></path>
                   </svg>
                 </div>
-                <!-- Pequeno calendário mockado (visual base imagem) -->
                 <div style="width: 140px; font-size:8px; color:#666; font-weight:bold; text-align:center;">
                    <div style="display:grid; grid-template-columns:repeat(7, 1fr); gap:4px; margin-bottom:4px;">
                      <div>S</div><div>M</div><div>T</div><div>W</div><div>T</div><div>F</div><div>S</div>
@@ -636,11 +616,9 @@ body.light .cal-cell.no-study{background:#e8eaf2;color:#b0b8d0}
              </div>
           </div>
           
-          <!-- Coluna Lateral Direita -->
           <div class="dash-col-side">
              <div class="dash-card" style="text-align:center; height: 100%; display:flex; flex-direction:column; justify-content:center;">
                 <div class="dc-title" style="text-align:center; font-size:14px; margin-top:-10px;">Progresso Geral</div>
-                <!-- Gráfico de Rosca -->
                 <div class="donut-wrapper" id="img-donut-bg">
                    <div class="donut-inner" id="img-donut-val">0%</div>
                 </div>
@@ -653,26 +631,16 @@ body.light .cal-cell.no-study{background:#e8eaf2;color:#b0b8d0}
           </div>
         </div>
       </div>
-      <!-- FIM DO DASHBOARD -->
-      
-      <!-- Lista de registros (Mantida logo abaixo) -->
       <div style="background:var(--surface-1);border:1px solid var(--border);border-radius:12px;padding:18px;margin-top:20px;">
         <h4 style="font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:12px;"><i class="ti ti-list-check"></i> Histórico de Registros da Área</h4>
         <div id="info-registros-list" style="font-size:13px;color:var(--text-secondary);line-height:2">Selecione uma aba ou visão no menu lateral.</div>
       </div>
     </div>
     
-    <!-- Painel Geral usa a mesma aba, mas processa tudo -->
     <div class="tab-content" id="tab-painel">
-       <!-- O conteúdo visual de painel foi fundido e será renderizado dentro do #tab-infografico pela lógica JS -->
-    </div>
+       </div>
 
-  </div><!-- /main -->
-</div><!-- /app -->
-</div><!-- /app-shell -->
-
-<!-- MODAL MAPA -->
-<div class="modal-overlay" id="mapa-modal">
+  </div></div></div><div class="modal-overlay" id="mapa-modal">
   <div class="modal-inner">
     <button class="modal-close" onclick="closeMapa()"><i class="ti ti-x"></i></button>
     <input class="modal-title-input" id="modal-title" type="text" placeholder="Título do mapa mental...">
@@ -685,7 +653,6 @@ body.light .cal-cell.no-study{background:#e8eaf2;color:#b0b8d0}
   </div>
 </div>
 
-<!-- MODAL DIA DO CALENDÁRIO -->
 <div class="modal-overlay" id="day-modal">
   <div class="modal-inner" style="max-width:480px">
     <button class="modal-close" onclick="closeDayModal()"><i class="ti ti-x"></i></button>
@@ -726,6 +693,7 @@ function loadState(){
   }catch(e){}
   updateFoguinho();
 }
+
 async function saveState() {
   try {
     // 1. Salva no navegador (rápido e local)
@@ -1470,8 +1438,8 @@ function renderInfografico(area){
 // ════════════════════════════════════════════
 checkSession();
 </script>
-</body>
-  <script type="module">
+
+<script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
   import { getFirestore } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
   
@@ -1489,5 +1457,6 @@ checkSession();
   window.db = getFirestore(app);
   console.log("Firebase conectado com sucesso!");
 </script>
-  
+
+</body>
 </html>
