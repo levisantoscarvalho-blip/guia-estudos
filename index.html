@@ -726,9 +726,21 @@ function loadState(){
   }catch(e){}
   updateFoguinho();
 }
-function saveState(){
-  try{ localStorage.setItem('guia_state_v3_'+currentUser, JSON.stringify(state)); }catch(e){}
-}
+async function saveState() {
+  try {
+    // 1. Salva no navegador (rápido e local)
+    localStorage.setItem('guia_state_v3_' + currentUser, JSON.stringify(state));
+    
+    // 2. Salva na nuvem (Firebase)
+    if (window.db) {
+      const { doc, setDoc } = await import("https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js");
+      await setDoc(doc(window.db, "usuarios", currentUser), state);
+      console.log("Dados salvos na nuvem!");
+    }
+  } catch(e) { 
+    console.error("Erro ao salvar no Firebase:", e); 
+  }
+}}
 
 // ════════════════════════════════════════════
 // FOGUINHO (STREAK INFINITO)
@@ -1477,4 +1489,5 @@ checkSession();
   window.db = getFirestore(app);
   console.log("Firebase conectado com sucesso!");
 </script>
+  
 </html>
