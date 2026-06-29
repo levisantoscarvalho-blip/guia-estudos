@@ -76,11 +76,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .hc-pink .hc-icon{background:#2a1020;color:#e070b0}
 .home-section-label{font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.8px;margin:28px 0 14px}
 
+/* ─── FOGUINHO ─── */
+.foguinho-box { display:flex; align-items:center; gap:6px; font-weight:700; color:var(--text-primary); background:var(--surface-2); padding:6px 12px; border-radius:30px; border:1px solid var(--border); font-size:14px; }
+.foguinho-box i { font-size:18px; transition:all 0.4s ease; text-shadow: 0 0 5px rgba(255,85,0,0.5); }
+
 /* ─── APP SHELL ─── */
 #app-shell{display:none;height:100vh;overflow:hidden}
 .app{display:flex;height:100vh}
 .sidebar{width:230px;min-width:230px;background:var(--surface-1);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow-y:auto;transition:background .2s}
-.sidebar-logo{padding:16px;border-bottom:1px solid var(--border)}
+.sidebar-logo{padding:16px;border-bottom:1px solid var(--border); display:flex; flex-direction:column; gap:12px;}
 .sidebar-logo .logo-title{font-size:13px;font-weight:600;color:var(--text-primary);display:flex;align-items:center;gap:7px}
 .sidebar-logo .logo-sub{font-size:10px;color:var(--text-muted);margin-top:3px}
 .sidebar-back{display:flex;align-items:center;gap:7px;padding:10px 16px;font-size:12px;cursor:pointer;color:var(--text-muted);transition:color .15s;border-bottom:1px solid var(--border)}
@@ -140,6 +144,27 @@ body.light .cal-cell.no-study{background:#e8eaf2;color:#b0b8d0}
 .cal-cell .cal-bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35;z-index:1}
 .cal-img-add{position:absolute;bottom:3px;right:3px;background:rgba(0,0,0,.5);border:none;border-radius:4px;padding:2px 4px;cursor:pointer;color:#fff;font-size:9px;z-index:3;display:none}
 .cal-cell:hover .cal-img-add{display:block}
+/* ─── Alternador de visualização ─── */
+.cal-view-switch{display:inline-flex;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius);padding:3px;gap:2px;margin-right:10px}
+.cal-view-btn{background:none;border:none;color:var(--text-secondary);padding:6px 12px;font-size:12px;font-weight:600;cursor:pointer;border-radius:6px;display:flex;align-items:center;gap:5px;transition:all .15s}
+.cal-view-btn:hover{color:var(--text-primary)}
+.cal-view-btn.active{background:var(--accent);color:#fff}
+/* ─── Visão anual ─── */
+.cal-year-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media (max-width:1100px){.cal-year-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:780px){.cal-year-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.cal-year-grid{grid-template-columns:1fr}}
+.cal-year-month{background:var(--surface-1);border:1px solid var(--border);border-radius:12px;padding:12px;cursor:pointer;transition:border-color .15s}
+.cal-year-month:hover{border-color:var(--border-strong)}
+.cal-year-month.current{border-color:var(--accent)}
+.cym-title{font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.cym-title small{font-size:10px;font-weight:500;color:var(--text-muted)}
+.cym-days{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+.cym-lbl{font-size:8px;color:var(--text-muted);text-align:center;font-weight:600;padding:1px 0}
+.cym-cell{aspect-ratio:1;border-radius:3px;font-size:9px;display:flex;align-items:center;justify-content:center;color:var(--text-muted);background:transparent;font-weight:500}
+.cym-cell.has-study{color:#fff}
+.cym-cell.today{outline:1.5px solid var(--accent);outline-offset:0}
+
 
 /* ─── MURAL ─── */
 .mural-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -232,29 +257,28 @@ body.light .cal-cell.no-study{background:#e8eaf2;color:#b0b8d0}
 .upload-area i{font-size:34px;color:var(--text-muted);display:block;margin-bottom:10px}
 .upload-area p{font-size:13px;color:var(--text-muted)}
 
-/* ─── INFOGRÁFICO ─── */
-.infographic-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:20px}
-.info-card{background:var(--surface-1);border:1px solid var(--border);border-radius:12px;padding:18px}
-.info-card-title{font-size:12px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
-.info-card-val{font-size:32px;font-weight:700;color:var(--text-primary);line-height:1}
-.info-card-sub{font-size:12px;color:var(--text-muted);margin-top:4px}
-.info-card-accent{color:var(--accent-text)}
-.prog-section{background:var(--surface-1);border:1px solid var(--border);border-radius:12px;padding:18px;margin-bottom:14px}
-.prog-section h4{font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:10px;display:flex;align-items:center;gap:6px}
-
-/* ─── PAINEL GERAL ─── */
-.panorama-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px}
-.panorama-card{background:var(--surface-1);border:1px solid var(--border);border-radius:12px;padding:18px;text-align:center}
-.panorama-val{font-size:28px;font-weight:700;color:var(--text-primary);margin-bottom:4px}
-.panorama-label{font-size:12px;color:var(--text-muted)}
-.area-progress-card{background:var(--surface-1);border:1px solid var(--border);border-radius:12px;padding:18px;margin-bottom:14px}
-.area-row{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.area-row:last-child{margin-bottom:0}
-.area-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-.area-name{font-size:13px;color:var(--text-primary);min-width:120px}
-.area-bar-wrap{flex:1;height:6px;background:var(--surface-3);border-radius:3px;overflow:hidden}
-.area-bar{height:100%;border-radius:3px;transition:width .4s ease}
-.area-val{font-size:12px;color:var(--text-muted);min-width:30px;text-align:right}
+/* ─── NOVO INFOGRÁFICO / PAINEL GERAL (Estilo da Imagem) ─── */
+.dash-wrapper { background: #e9ebee; padding: 20px; border-radius: 8px; font-family: -apple-system, sans-serif; }
+.dash-grid { display: grid; grid-template-columns: 3fr 1fr; gap: 20px; }
+.dash-col-main { display: flex; flex-direction: column; gap: 20px; }
+.dash-row-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+.dash-card { background: #ffffff; border-radius: 6px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); position: relative; }
+.dash-card.dark-card { background: #153250; color: #ffffff; }
+.dc-title { font-size: 13px; color: #666; margin-bottom: 12px; font-weight: 500; }
+.dark-card .dc-title { color: #a0b4c8; }
+.dc-val { font-size: 28px; font-weight: 700; color: #333; display: flex; align-items: center; gap: 8px; }
+.dark-card .dc-val { color: #ffffff; }
+.dc-icon { position: absolute; top: 20px; right: 20px; color: #f49e11; font-size: 22px; }
+/* Simulated Bar Chart */
+.sim-bar-container { display: flex; align-items: flex-end; gap: 12px; height: 160px; margin-top: 10px; border-bottom: 1px solid #ddd; padding-bottom: 10px; justify-content: space-between; }
+.sim-bar-group { display: flex; gap: 4px; align-items: flex-end; height: 100%; width: 100%; justify-content: center; position: relative;}
+.sim-bar-a { background: #153250; width: 18px; border-radius: 2px 2px 0 0; transition: height 0.4s; }
+.sim-bar-b { background: #f49e11; width: 18px; border-radius: 2px 2px 0 0; transition: height 0.4s; }
+.sim-bar-lbl { position: absolute; bottom: -24px; font-size: 10px; color: #888; text-transform: uppercase; font-weight: 600; }
+.dash-badge { position: absolute; top: 15px; right: 15px; background: #f49e11; color: #fff; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: bold; }
+/* Donut Chart */
+.donut-wrapper { width: 140px; height: 140px; border-radius: 50%; background: conic-gradient(#f49e11 0%, #153250 0); display: flex; align-items: center; justify-content: center; margin: 30px auto; transition: background 0.5s ease;}
+.donut-inner { width: 100px; height: 100px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold; color: #153250; }
 
 /* ─── MODAL ─── */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:500;align-items:center;justify-content:center}
@@ -293,7 +317,7 @@ body.light .cal-cell.no-study{background:#e8eaf2;color:#b0b8d0}
     <hr class="login-divider">
     <div id="painel-login">
       <label class="login-label">Usuário</label>
-      <input class="login-input" id="login-user" type="text" placeholder="seu usuário" onkeydown="if(event.key==='Enter')doLogin()">
+      <input class="login-input" id="login-user" type="text" placeholder="Levi" onkeydown="if(event.key==='Enter')doLogin()">
       <label class="login-label">Senha</label>
       <input class="login-input" id="login-pass" type="password" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
       <div class="login-error" id="login-error">Usuário ou senha incorretos.</div>
@@ -326,6 +350,11 @@ body.light .cal-cell.no-study{background:#e8eaf2;color:#b0b8d0}
       </div>
     </div>
     <div class="home-actions">
+      <!-- Foguinho da Home -->
+      <div class="foguinho-box" title="Dias contínuos sem zerar">
+        <i id="foguinho-icon-home" class="ti ti-flame"></i>
+        <span id="foguinho-num-home">0</span>
+      </div>
       <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn"><i class="ti ti-sun"></i> Tema claro</button>
       <button class="logout-btn-home" onclick="doLogout()"><i class="ti ti-logout"></i> Sair</button>
     </div>
@@ -384,7 +413,7 @@ body.light .cal-cell.no-study{background:#e8eaf2;color:#b0b8d0}
       <i class="ti ti-chart-pie hc-arrow"></i>
       <div class="hc-icon"><i class="ti ti-report-analytics"></i></div>
       <div class="hc-title">Painel Infográfico</div>
-      <div class="hc-desc">Panorama geral de evolução: horas totais, PDFs, apostilas e progresso por área</div>
+      <div class="hc-desc">Panorama geral de evolução desenhado especificamente como sua dashboard</div>
     </div>
   </div>
 </div>
@@ -394,8 +423,17 @@ body.light .cal-cell.no-study{background:#e8eaf2;color:#b0b8d0}
 <div class="app">
   <div class="sidebar" id="sidebar">
     <div class="sidebar-logo">
-      <div class="logo-title"><i class="ti ti-book-2"></i> <span id="sidebar-section-title">Guia de Estudos</span></div>
-      <div class="logo-sub" id="sidebar-section-sub">—</div>
+      <div style="display:flex; justify-content:space-between; align-items:center; width: 100%;">
+        <div>
+          <div class="logo-title"><i class="ti ti-book-2"></i> <span id="sidebar-section-title">Guia</span></div>
+          <div class="logo-sub" id="sidebar-section-sub">—</div>
+        </div>
+        <!-- Foguinho da Sidebar -->
+        <div class="foguinho-box" style="padding: 4px 8px; font-size: 12px; background: transparent; border: none;" title="Dias sem zerar">
+          <i id="foguinho-icon-sb" class="ti ti-flame"></i>
+          <span id="foguinho-num-sb">0</span>
+        </div>
+      </div>
     </div>
     <div class="sidebar-back" onclick="goHome()"><i class="ti ti-arrow-left"></i> Voltar ao início</div>
     <div id="sidebar-nav"></div>
@@ -422,10 +460,21 @@ body.light .cal-cell.no-study{background:#e8eaf2;color:#b0b8d0}
         <div class="stat-card"><div class="stat-label">Sequência atual</div><div class="stat-val" id="stat-seq">0</div><div class="stat-sub">dias seguidos</div></div>
       </div>
       <div class="cal-header">
-        <div class="cal-nav">
-          <button class="cal-nav-btn" onclick="changeMonth(-1)"><i class="ti ti-chevron-left"></i></button>
-          <div class="cal-month" id="cal-month-label">—</div>
-          <button class="cal-nav-btn" onclick="changeMonth(1)"><i class="ti ti-chevron-right"></i></button>
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px">
+          <div class="cal-view-switch" role="tablist" aria-label="Visualização do calendário">
+            <button class="cal-view-btn active" id="cal-view-month-btn" onclick="setCalView('month')"><i class="ti ti-calendar-month"></i> Mês</button>
+            <button class="cal-view-btn" id="cal-view-year-btn" onclick="setCalView('year')"><i class="ti ti-calendar-stats"></i> Ano</button>
+          </div>
+          <div class="cal-nav" id="cal-nav-month">
+            <button class="cal-nav-btn" onclick="changeMonth(-1)"><i class="ti ti-chevron-left"></i></button>
+            <div class="cal-month" id="cal-month-label">—</div>
+            <button class="cal-nav-btn" onclick="changeMonth(1)"><i class="ti ti-chevron-right"></i></button>
+          </div>
+          <div class="cal-nav" id="cal-nav-year" style="display:none">
+            <button class="cal-nav-btn" onclick="changeYear(-1)"><i class="ti ti-chevron-left"></i></button>
+            <div class="cal-month" id="cal-year-label">—</div>
+            <button class="cal-nav-btn" onclick="changeYear(1)"><i class="ti ti-chevron-right"></i></button>
+          </div>
         </div>
         <button class="cal-reg-btn" onclick="showTab('ia')"><i class="ti ti-plus"></i> Registrar hoje</button>
       </div>
@@ -437,8 +486,13 @@ body.light .cal-cell.no-study{background:#e8eaf2;color:#b0b8d0}
         <div class="legend-item"><div class="legend-dot" style="background:#2a1040"></div> Notário</div>
         <div class="legend-item"><div class="legend-dot" style="background:#1a3555"></div> Múltiplas áreas</div>
       </div>
-      <div class="cal-days-header" id="cal-days-header"></div>
-      <div class="cal-grid" id="cal-grid"></div>
+      <div id="cal-month-view">
+        <div class="cal-days-header" id="cal-days-header"></div>
+        <div class="cal-grid" id="cal-grid"></div>
+      </div>
+      <div id="cal-year-view" style="display:none">
+        <div class="cal-year-grid" id="cal-year-grid"></div>
+      </div>
       <input type="file" id="cal-img-input" accept="image/*" style="display:none" onchange="addCalImg(this)">
     </div>
 
@@ -510,39 +564,107 @@ body.light .cal-cell.no-study{background:#e8eaf2;color:#b0b8d0}
       </div>
     </div>
 
-    <!-- ── INFOGRÁFICO POR ÁREA ── -->
+    <!-- ── INFOGRÁFICO POR ÁREA E PAINEL GERAL (REFEITOS) ── -->
     <div class="tab-content" id="tab-infografico">
       <div class="page-header">
-        <div class="page-title" id="info-area-title">Infográfico</div>
-        <div class="page-sub" id="info-area-sub">Acompanhe seu progresso</div>
+        <div class="page-title" id="info-area-title">Infográfico Dashboard</div>
+        <div class="page-sub" id="info-area-sub">Painel visual de evolução (Referência)</div>
       </div>
-      <div class="infographic-grid">
-        <div class="info-card"><div class="info-card-title">Dias estudados</div><div class="info-card-val info-card-accent" id="info-dias">0</div><div class="info-card-sub">no total</div></div>
-        <div class="info-card"><div class="info-card-title">Horas totais</div><div class="info-card-val info-card-accent" id="info-horas">0h</div><div class="info-card-sub">acumuladas</div></div>
-        <div class="info-card"><div class="info-card-title">Questões feitas</div><div class="info-card-val info-card-accent" id="info-questoes">0</div><div class="info-card-sub">registradas</div></div>
-        <div class="info-card"><div class="info-card-title">PDFs / Apostilas lidas</div><div class="info-card-val info-card-accent" id="info-pdfs">0</div><div class="info-card-sub">materiais</div></div>
+      
+      <!-- INÍCIO DO DASHBOARD (ESTILO DA IMAGEM) -->
+      <div class="dash-wrapper">
+        <div class="dash-grid">
+          <!-- Coluna Principal -->
+          <div class="dash-col-main">
+             <!-- Cartões de Topo -->
+             <div class="dash-row-cards">
+                <div class="dash-card dark-card">
+                   <div class="dc-title">Horas Acumuladas</div>
+                   <div class="dc-icon" style="color: #ffffff;"><i class="ti ti-clock"></i></div>
+                   <div class="dc-val"><span id="img-horas">0</span>h</div>
+                </div>
+                <div class="dash-card">
+                   <div class="dc-title">Dias Estudados</div>
+                   <div class="dc-icon"><i class="ti ti-calendar"></i></div>
+                   <div class="dc-val" id="img-dias">0</div>
+                </div>
+                <div class="dash-card">
+                   <div class="dc-title">Questões Feitas</div>
+                   <div class="dc-icon"><i class="ti ti-thumb-up"></i></div>
+                   <div class="dc-val" id="img-questoes">0</div>
+                </div>
+                <div class="dash-card">
+                   <div class="dc-title">Materiais (PDFs)</div>
+                   <div class="dc-icon"><i class="ti ti-star"></i></div>
+                   <div class="dc-val" id="img-materiais">0</div>
+                </div>
+             </div>
+             
+             <!-- Gráfico de Barras -->
+             <div class="dash-card">
+                <div class="dc-title">Resultados de Horas vs Questões por Área</div>
+                <div class="dash-badge">Check Now</div>
+                <div class="sim-bar-container" id="img-bars">
+                   <!-- Injetado via JS -->
+                </div>
+             </div>
+             
+             <!-- Gráfico de Onda/Calendário -->
+             <div class="dash-card" style="display:flex; justify-content:space-between; gap:20px; align-items:flex-end;">
+                <div style="flex:1; position:relative;">
+                  <div style="display:flex; gap:12px; margin-bottom:10px;">
+                     <div style="font-size:10px; color:#666; font-weight:600;"><i class="ti ti-circle-filled" style="color:#f49e11; font-size:8px;"></i> Horas Mensais</div>
+                     <div style="font-size:10px; color:#666; font-weight:600;"><i class="ti ti-circle-filled" style="color:#153250; font-size:8px;"></i> Consistência</div>
+                  </div>
+                  <!-- Simulação do Gráfico de Área -->
+                  <svg viewBox="0 0 400 100" style="width:100%; height:80px; display:block;">
+                     <path d="M0,80 C40,40 80,100 140,50 C200,0 260,90 320,40 C360,10 400,70 400,70 L400,100 L0,100 Z" fill="rgba(244, 158, 17, 0.4)"></path>
+                     <path d="M0,90 C50,60 100,110 160,70 C220,30 280,80 400,50 L400,100 L0,100 Z" fill="rgba(21, 50, 80, 0.2)"></path>
+                  </svg>
+                </div>
+                <!-- Pequeno calendário mockado (visual base imagem) -->
+                <div style="width: 140px; font-size:8px; color:#666; font-weight:bold; text-align:center;">
+                   <div style="display:grid; grid-template-columns:repeat(7, 1fr); gap:4px; margin-bottom:4px;">
+                     <div>S</div><div>M</div><div>T</div><div>W</div><div>T</div><div>F</div><div>S</div>
+                   </div>
+                   <div style="display:grid; grid-template-columns:repeat(7, 1fr); gap:4px;">
+                     <div style="color:#ccc;">28</div><div style="color:#ccc;">29</div><div style="color:#ccc;">30</div><div style="color:#ccc;">31</div><div>1</div><div>2</div><div>3</div>
+                     <div>4</div><div>5</div><div style="background:#153250; color:#fff; border-radius:2px; padding:2px;">6</div><div>7</div><div>8</div><div>9</div><div>10</div>
+                     <div>11</div><div>12</div><div>13</div><div style="background:#f49e11; color:#fff; border-radius:2px; padding:2px;">14</div><div>15</div><div>16</div><div>17</div>
+                   </div>
+                </div>
+             </div>
+          </div>
+          
+          <!-- Coluna Lateral Direita -->
+          <div class="dash-col-side">
+             <div class="dash-card" style="text-align:center; height: 100%; display:flex; flex-direction:column; justify-content:center;">
+                <div class="dc-title" style="text-align:center; font-size:14px; margin-top:-10px;">Progresso Geral</div>
+                <!-- Gráfico de Rosca -->
+                <div class="donut-wrapper" id="img-donut-bg">
+                   <div class="donut-inner" id="img-donut-val">0%</div>
+                </div>
+                <div style="font-size:12px; color:#888; line-height:1.8; text-align:left; margin:0 auto; display:inline-block;">
+                   <div style="display:flex; align-items:center; gap:6px;"><i class="ti ti-circle-filled" style="color:#f49e11; font-size:10px;"></i> <span>Feito</span></div>
+                   <div style="display:flex; align-items:center; gap:6px;"><i class="ti ti-circle-filled" style="color:#153250; font-size:10px;"></i> <span>Pendente</span></div>
+                </div>
+                <button style="margin-top:auto; width:100%; background:#f49e11; color:#fff; border:none; padding:12px; border-radius:4px; font-weight:bold; cursor:pointer;">Analisar Dados</button>
+             </div>
+          </div>
+        </div>
       </div>
-      <div class="prog-section">
-        <h4><i class="ti ti-list-check"></i> Conteúdo estudado (registros)</h4>
-        <div id="info-registros-list" style="font-size:13px;color:var(--text-secondary);line-height:2">Nenhum registro ainda.</div>
+      <!-- FIM DO DASHBOARD -->
+      
+      <!-- Lista de registros (Mantida logo abaixo) -->
+      <div style="background:var(--surface-1);border:1px solid var(--border);border-radius:12px;padding:18px;margin-top:20px;">
+        <h4 style="font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:12px;"><i class="ti ti-list-check"></i> Histórico de Registros da Área</h4>
+        <div id="info-registros-list" style="font-size:13px;color:var(--text-secondary);line-height:2">Selecione uma aba ou visão no menu lateral.</div>
       </div>
     </div>
-
-    <!-- ── PAINEL GERAL ── -->
+    
+    <!-- Painel Geral usa a mesma aba, mas processa tudo -->
     <div class="tab-content" id="tab-painel">
-      <div class="page-header"><div class="page-title">Painel Infográfico Geral</div><div class="page-sub">Panorama completo da sua evolução</div></div>
-      <div class="panorama-grid">
-        <div class="panorama-card"><div class="panorama-val" id="pan-dias" style="color:var(--accent-text)">0</div><div class="panorama-label">Dias estudados (total)</div></div>
-        <div class="panorama-card"><div class="panorama-val" id="pan-horas" style="color:var(--accent-text)">0h</div><div class="panorama-label">Horas acumuladas</div></div>
-        <div class="panorama-card"><div class="panorama-val" id="pan-questoes" style="color:#6dbc8a">0</div><div class="panorama-label">Questões feitas</div></div>
-        <div class="panorama-card"><div class="panorama-val" id="pan-pdfs" style="color:#e0a050">0</div><div class="panorama-label">PDFs lidos</div></div>
-        <div class="panorama-card"><div class="panorama-val" id="pan-apostilas" style="color:#c090f0">0</div><div class="panorama-label">Apostilas lidas</div></div>
-        <div class="panorama-card"><div class="panorama-val" id="pan-seq" style="color:#e07070">0</div><div class="panorama-label">Sequência atual (dias)</div></div>
-      </div>
-      <div class="area-progress-card">
-        <div class="page-title" style="font-size:15px;margin-bottom:14px">Progresso por área</div>
-        <div id="pan-areas-bars"></div>
-      </div>
+       <!-- O conteúdo visual de painel foi fundido e será renderizado dentro do #tab-infografico pela lógica JS -->
     </div>
 
   </div><!-- /main -->
@@ -590,7 +712,8 @@ const LIVROS = ['Python para Análise de Dados (Wes McKinney)','A Arte da Estat�
 let state = {
   month: new Date().getMonth(), year: new Date().getFullYear(),
   days: {}, checks: {fac:{}, sefaz:{}, livros:{}}, mapas: [],
-  theme: 'dark'
+  theme: 'dark',
+  foguinhoStart: null // Data de início do foguinho
 };
 let currentUser = '';
 let currentSection = '';
@@ -599,11 +722,43 @@ function loadState(){
   try{
     const key = 'guia_state_v3_' + currentUser;
     const s = localStorage.getItem(key);
-    if(s) state = Object.assign({month:new Date().getMonth(),year:new Date().getFullYear(),days:{},checks:{fac:{},sefaz:{},livros:{}},mapas:[],theme:'dark'}, JSON.parse(s));
+    if(s) state = Object.assign({month:new Date().getMonth(),year:new Date().getFullYear(),days:{},checks:{fac:{},sefaz:{},livros:{}},mapas:[],theme:'dark', foguinhoStart: null}, JSON.parse(s));
   }catch(e){}
+  updateFoguinho();
 }
 function saveState(){
   try{ localStorage.setItem('guia_state_v3_'+currentUser, JSON.stringify(state)); }catch(e){}
+}
+
+// ════════════════════════════════════════════
+// FOGUINHO (STREAK INFINITO)
+// ════════════════════════════════════════════
+function updateFoguinho() {
+  if(!state.foguinhoStart) {
+    state.foguinhoStart = Date.now(); // Inicia o foguinho permanentemente agora
+    saveState();
+  }
+  const msPassed = Date.now() - state.foguinhoStart;
+  const daysPassed = Math.floor(msPassed / (1000 * 60 * 60 * 24)) + 1; // Nunca zera
+  
+  const ids = ['-home', '-sb'];
+  ids.forEach(suf => {
+    const fn = document.getElementById('foguinho-num' + suf);
+    const fi = document.getElementById('foguinho-icon' + suf);
+    if(fn && fi) {
+      fn.textContent = daysPassed;
+      // Progressão de Cores
+      let color = '#ff9900'; // Laranja claro
+      if(daysPassed >= 7) color = '#ff5500'; // Laranja escuro
+      if(daysPassed >= 14) color = '#ff2200'; // Vermelho
+      if(daysPassed >= 30) color = '#ff0055'; // Rosa/Vermelho
+      if(daysPassed >= 60) color = '#aa00ff'; // Roxo
+      if(daysPassed >= 100) color = '#00e5ff'; // Azul místico
+      
+      fi.style.color = color;
+      fi.style.textShadow = `0 0 ${5 + (daysPassed/10)}px ${color}`;
+    }
+  });
 }
 
 // ════════════════════════════════════════════
@@ -726,7 +881,7 @@ const SECTION_NAVS = {
   },
   painel:{
     title:'Painel Geral', sub:'Panorama completo',
-    nav:[{label:'Painel Infográfico',icon:'ti-report-analytics',tab:'painel'}]
+    nav:[{label:'Painel Infográfico',icon:'ti-report-analytics',tab:'infografico',area:'geral'}]
   }
 };
 
@@ -741,7 +896,6 @@ function openSection(section){
   const nav=document.getElementById('sidebar-nav');
   nav.innerHTML=cfg.nav.map(n=>`<div class="nav-item" onclick="navClick('${n.tab}','${n.area||''}')" data-tab="${n.tab}"><i class="ti ${n.icon}"></i>${n.label}</div>`).join('');
 
-  // Acionar primeira aba
   const first=cfg.nav[0];
   navClick(first.tab, first.area||'');
   updateSidebarHours();
@@ -750,9 +904,8 @@ function openSection(section){
 function navClick(tab, area){
   document.querySelectorAll('.sidebar .nav-item').forEach(n=>n.classList.toggle('active', n.dataset.tab===tab));
   if(tab==='infografico') renderInfografico(area);
-  else if(tab==='painel') renderPainel();
   else if(tab==='ia') startChat();
-  else if(tab==='calendario') renderCal();
+  else if(tab==='calendario') renderCalActive();
   else if(tab==='mural') renderMural();
   else if(tab==='conteudos') renderConteudos();
   else if(tab==='mapas') renderMapas();
@@ -823,6 +976,70 @@ function getCellClass(info){
 }
 
 function triggerCalImg(key){ calImgTargetKey=key; document.getElementById('cal-img-input').click(); }
+
+let calView = 'month';
+function renderCalActive(){ if(calView==='year') renderYearCal(); else renderCal(); }
+function setCalView(v){
+  calView = v;
+  document.getElementById('cal-view-month-btn').classList.toggle('active', v==='month');
+  document.getElementById('cal-view-year-btn').classList.toggle('active', v==='year');
+  document.getElementById('cal-month-view').style.display = v==='month' ? '' : 'none';
+  document.getElementById('cal-year-view').style.display = v==='year' ? '' : 'none';
+  document.getElementById('cal-nav-month').style.display = v==='month' ? '' : 'none';
+  document.getElementById('cal-nav-year').style.display = v==='year' ? '' : 'none';
+  renderCalActive();
+}
+function changeYear(delta){ state.year += delta; renderCalActive(); }
+function getCellColor(info){
+  if(!info) return '';
+  const areas=[info.ciencia,info.sefaz,info.direito,info.notario].filter(Boolean).length;
+  if(areas===0 && !info.eletiva) return '';
+  if(areas>1) return '#1a3555';
+  if(info.ciencia) return '#1e3a6e';
+  if(info.sefaz) return '#1e4a32';
+  if(info.direito) return '#3a2010';
+  if(info.notario) return '#2a1040';
+  if(info.eletiva) return '#2a1e40';
+  return '';
+}
+function renderYearCal(){
+  const grid = document.getElementById('cal-year-grid');
+  if(!grid) return;
+  document.getElementById('cal-year-label').textContent = state.year;
+  document.getElementById('cal-subtitle').textContent = 'Ano ' + state.year;
+  const today = new Date();
+  let html = '';
+  for(let m=0; m<12; m++){
+    const first = new Date(state.year, m, 1).getDay();
+    const total = new Date(state.year, m+1, 0).getDate();
+    let monthHours = 0, monthDays = 0;
+    let cells = DIAS_SEM.map(d=>`<div class="cym-lbl">${d[0]}</div>`).join('');
+    for(let i=0;i<first;i++) cells += '<div class="cym-cell"></div>';
+    for(let d=1; d<=total; d++){
+      const key = mkKey(state.year, m+1, d);
+      const info = state.days[key];
+      const color = getCellColor(info);
+      const isToday = d===today.getDate() && m===today.getMonth() && state.year===today.getFullYear();
+      if(info && info.horasTotal){ monthHours += Number(info.horasTotal)||0; monthDays++; }
+      const cls = 'cym-cell' + (color?' has-study':'') + (isToday?' today':'');
+      const style = color ? `background:${color}` : '';
+      cells += `<div class="${cls}" style="${style}" title="${key}${info&&info.horasTotal?(' · '+info.horasTotal+'h'):''}" onclick="jumpToMonth(${state.year},${m},'${key}')">${d}</div>`;
+    }
+    const isCurrent = m===state.month;
+    html += `<div class="cal-year-month ${isCurrent?'current':''}" onclick="jumpToMonth(${state.year},${m})">
+      <div class="cym-title">${MESES[m]} <small>${monthDays}d · ${monthHours}h</small></div>
+      <div class="cym-days">${cells}</div>
+    </div>`;
+  }
+  grid.innerHTML = html;
+}
+function jumpToMonth(y, m, dayKey){
+  if(event) event.stopPropagation();
+  state.year = y; state.month = m;
+  setCalView('month');
+  if(dayKey) openDayModal(dayKey);
+}
+
 function addCalImg(input){
   if(!calImgTargetKey||!input.files[0]) return;
   const r=new FileReader();
@@ -843,7 +1060,7 @@ function openDayModal(key){
   const info=state.days[key];
   let html='';
   if(info){
-    if(info.acordou) html+=`<div class="summary-item"><div class="summary-area">Acordou</div><div class="summary-detail">${info.acordou}</div></div>`;
+    if(info.saude) html+=`<div class="summary-item"><div class="summary-area">Saúde</div><div class="summary-detail">${info.saude}</div></div>`;
     ['ciencia','sefaz','direito','notario'].forEach(area=>{
       const nomes={ciencia:'Ciência de Dados',sefaz:'SEFAZ SP',direito:'Direito',notario:'Notário'};
       if(info[area]){
@@ -942,10 +1159,9 @@ function deleteDay(key){
 }
 
 // ════════════════════════════════════════════
-// CHAT IA — fluxo por seções
+// CHAT IA
 // ════════════════════════════════════════════
 let chatStep=0, chatData={}, currentDate=null;
-// Fases: 0=inicio, 1=saude, 10=areas, 20..29=ciencia, 30..39=sefaz, 40..49=direito, 50..59=notario, 60=eletiva, 70=fim
 
 function startChat(date){
   currentDate=date||todayKey();
@@ -994,59 +1210,53 @@ const isYes=s=>!isNo(s)&&(s.toLowerCase().includes('sim')||s==='s'||s.toLowerCas
 const parseH=s=>{let h=parseFloat(s.replace(/[^0-9.,]/g,'').replace(',','.')); if(isNaN(h))h=0; if(s.includes('6')&&s.toLowerCase().includes('mais'))h=6; return h;};
 
 function processStep(msg){
-  // PASSO 1 — estudou hoje?
   if(chatStep===1){
-    if(isNo(msg)){ chatData.naoEstudou=true; iaMsg('Tudo bem! Dias de descanso também são importantes. Posso salvar como dia sem estudo?'); setQuick(['Sim, salvar','Cancelar']); chatStep=99; }
-    else{ chatStep=10; askSaude(); }
-    return;
+    if(isNo(msg)){ chatData.naoEstudou=true; iaMsg('Tudo bem! Posso salvar como dia sem estudo?'); setQuick(['Sim, salvar','Cancelar']); chatStep=99; }
+    else{ chatStep=10; askSaude(); } return;
   }
-  // PASSO 99 — não estudou confirm
   if(chatStep===99){
-    if(isYes(msg)||msg.toLowerCase().includes('salvar')){ chatData.horasTotal=0; updateSummary(); document.getElementById('save-day-btn').disabled=false; iaMsg('Pronto! Clique em "Salvar" para confirmar.'); chatStep=0; }
-    else{ iaMsg('Ok! Quando quiser registrar é só voltar aqui.'); chatStep=0; }
-    return;
+    if(isYes(msg)||msg.toLowerCase().includes('salvar')){ chatData.horasTotal=0; updateSummary(); document.getElementById('save-day-btn').disabled=false; iaMsg('Pronto! Clique em "Salvar".'); chatStep=0; }
+    else{ iaMsg('Ok! Volte quando quiser registrar.'); chatStep=0; } return;
   }
 
   // ── SAÚDE ──
   if(chatStep===10){ chatData.acordou=msg; iaMsg('Tomou banho hoje?','🏃 Saúde'); setQuick(['Sim','Não']); chatStep=11; return; }
   if(chatStep===11){ chatData.banho=isYes(msg); iaMsg('Escovou os dentes 3x?','🏃 Saúde'); setQuick(['Sim','Não']); chatStep=12; return; }
-  if(chatStep===12){ chatData.dentes=isYes(msg); iaMsg('Passou Base Ativo hoje?','🏃 Saúde'); setQuick(['Sim','Não']); chatStep=13; return; }
-  if(chatStep===13){ chatData.baseAtivo=isYes(msg); askAreas(); return; }
+  if(chatStep===12){ chatData.dentes=isYes(msg); askAreas(); return; }
 
   // ── ÁREAS ──
-  if(chatStep===20){ chatData.areas.ciencia=isYes(msg); if(chatData.areas.ciencia){ iaMsg('Quantas horas de Ciência de Dados?','📊 Ciência de Dados'); setQuick(['1h','2h','3h','4h','5h']); chatStep=21; } else { askSefaz(); } return; }
-  if(chatStep===21){ chatData.areas.cienciaHoras=parseH(msg); iaMsg('Qual assunto você estudou?','📊 Ciência de Dados'); setQuick(['Programação Python','Machine Learning','Banco de dados','Estatística','Redes de computadores']); chatStep=22; return; }
-  if(chatStep===22){ chatData.areas.cienciaAssunto=msg; iaMsg('Quantas questões você fez?','📊 Ciência de Dados'); setQuick(['0','5','10','20','30']); chatStep=23; return; }
-  if(chatStep===23){ chatData.areas.cienciaQuestoes=parseInt(msg)||0; iaMsg('Leu algum PDF ou apostila de C. Dados?','📊 Ciência de Dados'); setQuick(['Sim','Não']); chatStep=24; return; }
+  if(chatStep===20){ chatData.areas.ciencia=isYes(msg); if(chatData.areas.ciencia){ iaMsg('Quantas horas de Ciência de Dados?','📊 C. Dados'); setQuick(['1h','2h','3h']); chatStep=21; } else { askSefaz(); } return; }
+  if(chatStep===21){ chatData.areas.cienciaHoras=parseH(msg); iaMsg('Qual assunto?','📊 C. Dados'); setQuick(['Python','Machine Learning']); chatStep=22; return; }
+  if(chatStep===22){ chatData.areas.cienciaAssunto=msg; iaMsg('Quantas questões?','📊 C. Dados'); setQuick(['0','10','20']); chatStep=23; return; }
+  if(chatStep===23){ chatData.areas.cienciaQuestoes=parseInt(msg)||0; iaMsg('Leu PDF?','📊 C. Dados'); setQuick(['Sim','Não']); chatStep=24; return; }
   if(chatStep===24){ chatData.areas.cienciaPdf=isYes(msg); askSefaz(); return; }
 
-  if(chatStep===30){ chatData.areas.sefaz=isYes(msg); if(chatData.areas.sefaz){ iaMsg('Quantas horas de SEFAZ SP?','🏛 SEFAZ SP'); setQuick(['1h','2h','3h','4h','5h']); chatStep=31; } else { askDireito(); } return; }
-  if(chatStep===31){ chatData.areas.sefazHoras=parseH(msg); iaMsg('Qual matéria você estudou?','🏛 SEFAZ SP'); setQuick(['Direito Tributário','Contabilidade','Português','Matemática financeira','Administração']); chatStep=32; return; }
-  if(chatStep===32){ chatData.areas.sefazAssunto=msg; iaMsg('Quantas questões você fez?','🏛 SEFAZ SP'); setQuick(['0','5','10','20','30','50']); chatStep=33; return; }
-  if(chatStep===33){ chatData.areas.sefazQuestoes=parseInt(msg)||0; iaMsg('Leu alguma apostila de SEFAZ?','🏛 SEFAZ SP'); setQuick(['Sim','Não']); chatStep=34; return; }
+  if(chatStep===30){ chatData.areas.sefaz=isYes(msg); if(chatData.areas.sefaz){ iaMsg('Quantas horas de SEFAZ SP?','🏛 SEFAZ'); setQuick(['1h','2h','3h']); chatStep=31; } else { askDireito(); } return; }
+  if(chatStep===31){ chatData.areas.sefazHoras=parseH(msg); iaMsg('Qual matéria?','🏛 SEFAZ'); setQuick(['Direito Tributário','Contabilidade']); chatStep=32; return; }
+  if(chatStep===32){ chatData.areas.sefazAssunto=msg; iaMsg('Quantas questões?','🏛 SEFAZ'); setQuick(['0','10','20']); chatStep=33; return; }
+  if(chatStep===33){ chatData.areas.sefazQuestoes=parseInt(msg)||0; iaMsg('Leu apostila?','🏛 SEFAZ'); setQuick(['Sim','Não']); chatStep=34; return; }
   if(chatStep===34){ chatData.areas.sefazApostila=isYes(msg); askDireito(); return; }
 
-  if(chatStep===40){ chatData.areas.direito=isYes(msg); if(chatData.areas.direito){ iaMsg('Quantas horas de Direito?','⚖️ Direito'); setQuick(['1h','2h','3h','4h']); chatStep=41; } else { askNotario(); } return; }
-  if(chatStep===41){ chatData.areas.direitoHoras=parseH(msg); iaMsg('Qual assunto?','⚖️ Direito'); setQuick(['Direito Civil','Direito Constitucional','Direito Administrativo','Direito Penal']); chatStep=42; return; }
-  if(chatStep===42){ chatData.areas.direitoAssunto=msg; iaMsg('Quantas questões?','⚖️ Direito'); setQuick(['0','5','10','20','30']); chatStep=43; return; }
+  if(chatStep===40){ chatData.areas.direito=isYes(msg); if(chatData.areas.direito){ iaMsg('Quantas horas de Direito?','⚖️ Direito'); setQuick(['1h','2h']); chatStep=41; } else { askNotario(); } return; }
+  if(chatStep===41){ chatData.areas.direitoHoras=parseH(msg); iaMsg('Qual assunto?','⚖️ Direito'); setQuick(['Civil','Constitucional']); chatStep=42; return; }
+  if(chatStep===42){ chatData.areas.direitoAssunto=msg; iaMsg('Quantas questões?','⚖️ Direito'); setQuick(['0','10','20']); chatStep=43; return; }
   if(chatStep===43){ chatData.areas.direitoQuestoes=parseInt(msg)||0; askNotario(); return; }
 
-  if(chatStep===50){ chatData.areas.notario=isYes(msg); if(chatData.areas.notario){ iaMsg('Quantas horas de Notário/Registrador?','📜 Notário'); setQuick(['1h','2h','3h','4h']); chatStep=51; } else { askEletiva(); } return; }
-  if(chatStep===51){ chatData.areas.notarioHoras=parseH(msg); iaMsg('Qual assunto?','📜 Notário'); setQuick(['Direito Notarial','Registros Públicos','Atos notariais','Legislação específica']); chatStep=52; return; }
-  if(chatStep===52){ chatData.areas.notarioAssunto=msg; iaMsg('Quantas questões?','📜 Notário'); setQuick(['0','5','10','20']); chatStep=53; return; }
+  if(chatStep===50){ chatData.areas.notario=isYes(msg); if(chatData.areas.notario){ iaMsg('Quantas horas de Notário/Registrador?','📜 Notário'); setQuick(['1h','2h']); chatStep=51; } else { askEletiva(); } return; }
+  if(chatStep===51){ chatData.areas.notarioHoras=parseH(msg); iaMsg('Qual assunto?','📜 Notário'); setQuick(['Direito Notarial','Registros Públicos']); chatStep=52; return; }
+  if(chatStep===52){ chatData.areas.notarioAssunto=msg; iaMsg('Quantas questões?','📜 Notário'); setQuick(['0','10']); chatStep=53; return; }
   if(chatStep===53){ chatData.areas.notarioQuestoes=parseInt(msg)||0; askEletiva(); return; }
 
-  // ── ELETIVA ──
-  if(chatStep===60){ chatData.areas.eletiva=isYes(msg); if(chatData.areas.eletiva){ iaMsg('Qual eletiva e o que fez?','📚 Eletiva'); setQuick(['Matemática financeira','Raciocínio lógico','Inglês','Python prático','Leitura']); chatStep=61; } else { finalizar(); } return; }
+  if(chatStep===60){ chatData.areas.eletiva=isYes(msg); if(chatData.areas.eletiva){ iaMsg('Qual eletiva?','📚 Eletiva'); setQuick(['Matemática','Lógica','Inglês']); chatStep=61; } else { finalizar(); } return; }
   if(chatStep===61){ chatData.areas.eletivaDesc=msg; finalizar(); return; }
 }
 
-function askSaude(){ iaMsg('Que horas você acordou hoje?','🏃 Saúde'); setQuick(['5h','6h','7h','8h','9h','10h']); chatStep=10; }
+function askSaude(){ iaMsg('Que horas você acordou hoje?','🏃 Saúde'); setQuick(['5h','6h','7h','8h']); chatStep=10; }
 function askAreas(){ iaMsg('Estudou <strong>Ciência de Dados</strong> hoje?','📊 Área'); setQuick(['Sim','Não']); chatStep=20; }
 function askSefaz(){ iaMsg('Estudou <strong>SEFAZ SP</strong> hoje?','🏛 Área'); setQuick(['Sim','Não']); chatStep=30; }
 function askDireito(){ iaMsg('Estudou <strong>Direito</strong> hoje?','⚖️ Área'); setQuick(['Sim','Não']); chatStep=40; }
 function askNotario(){ iaMsg('Estudou <strong>Notário/Registrador</strong> hoje?','📜 Área'); setQuick(['Sim','Não']); chatStep=50; }
-function askEletiva(){ iaMsg('Fez alguma <strong>eletiva de base</strong> hoje? (matemática, lógica, inglês, python...)','📚 Eletiva'); setQuick(['Sim','Não']); chatStep=60; }
+function askEletiva(){ iaMsg('Fez alguma <strong>eletiva de base</strong> hoje?','📚 Eletiva'); setQuick(['Sim','Não']); chatStep=60; }
 
 function finalizar(){
   const a=chatData.areas;
@@ -1054,17 +1264,17 @@ function finalizar(){
   chatData.horasTotal=total;
   updateSummary();
   document.getElementById('save-day-btn').disabled=false;
-  iaMsg(`Perfeito! Total de hoje: <strong>${total}h</strong>. Clique em "Salvar" para confirmar. 🎉`);
+  iaMsg(`Perfeito! Total de hoje: <strong>${total}h</strong>. Clique em "Salvar". 🎉`);
   chatStep=0;
 }
 
 function updateSummary(){
   const a=chatData.areas||{};
   const [y,m,d]=(chatData.date||todayKey()).split('-');
-  const saudeInfo=[chatData.acordou?`Acordou: ${chatData.acordou}`:'',chatData.banho?'Banho ✓':'Banho ✗',chatData.dentes?'Dentes 3x ✓':'Dentes ✗',chatData.baseAtivo?'Base Ativo ✓':''].filter(Boolean).join(' · ');
+  const saudeInfo=[chatData.acordou?`Acordou: ${chatData.acordou}`:'',chatData.banho?'Banho ✓':'Banho ✗',chatData.dentes?'Dentes 3x ✓':'Dentes ✗'].filter(Boolean).join(' · ');
   let html=`<div class="summary-item"><div class="summary-area"><i class="ti ti-calendar"></i> Data</div><div class="summary-detail">${d}/${m}/${y}</div></div>`;
   if(saudeInfo) html+=`<div class="summary-item"><div class="summary-area">🏃 Saúde</div><div class="summary-detail">${saudeInfo}</div></div>`;
-  if(a.ciencia||a.cienciaHoras) html+=`<div class="summary-item"><div class="summary-area">📊 Ciência de Dados</div><div class="summary-detail">${a.cienciaHoras||0}h · ${a.cienciaAssunto||'—'} · ${a.cienciaQuestoes||0}q${a.cienciaPdf?' · PDF ✓':''}</div></div>`;
+  if(a.ciencia||a.cienciaHoras) html+=`<div class="summary-item"><div class="summary-area">📊 C. Dados</div><div class="summary-detail">${a.cienciaHoras||0}h · ${a.cienciaAssunto||'—'} · ${a.cienciaQuestoes||0}q${a.cienciaPdf?' · PDF ✓':''}</div></div>`;
   if(a.sefaz||a.sefazHoras) html+=`<div class="summary-item"><div class="summary-area">🏛 SEFAZ SP</div><div class="summary-detail">${a.sefazHoras||0}h · ${a.sefazAssunto||'—'} · ${a.sefazQuestoes||0}q${a.sefazApostila?' · Apostila ✓':''}</div></div>`;
   if(a.direito||a.direitoHoras) html+=`<div class="summary-item"><div class="summary-area">⚖️ Direito</div><div class="summary-detail">${a.direitoHoras||0}h · ${a.direitoAssunto||'—'} · ${a.direitoQuestoes||0}q</div></div>`;
   if(a.notario||a.notarioHoras) html+=`<div class="summary-item"><div class="summary-area">📜 Notário</div><div class="summary-detail">${a.notarioHoras||0}h · ${a.notarioAssunto||'—'} · ${a.notarioQuestoes||0}q</div></div>`;
@@ -1084,7 +1294,6 @@ function saveDay(){
   if(a.sefazHoras||a.sefazAssunto) dayObj.sefaz={horas:a.sefazHoras||0,assunto:a.sefazAssunto||'—',questoes:a.sefazQuestoes||0,apostila:!!a.sefazApostila};
   if(a.direitoHoras||a.direitoAssunto) dayObj.direito={horas:a.direitoHoras||0,assunto:a.direitoAssunto||'—',questoes:a.direitoQuestoes||0};
   if(a.notarioHoras||a.notarioAssunto) dayObj.notario={horas:a.notarioHoras||0,assunto:a.notarioAssunto||'—',questoes:a.notarioQuestoes||0};
-  // preservar imagem se já existia
   if(state.days[chatData.date]&&state.days[chatData.date].imgSrc) dayObj.imgSrc=state.days[chatData.date].imgSrc;
   state.days[chatData.date]=dayObj;
   saveState();
@@ -1151,108 +1360,97 @@ document.getElementById('mapa-modal').addEventListener('click',function(e){ if(e
 document.getElementById('day-modal').addEventListener('click',function(e){ if(e.target===this) closeDayModal(); });
 
 // ════════════════════════════════════════════
-// INFOGRÁFICO POR ÁREA
+// NOVO RENDER DO DASHBOARD (Baseado na Imagem)
 // ════════════════════════════════════════════
 function renderInfografico(area){
-  const nomes={ciencia:'Ciência de Dados',sefaz:'SEFAZ SP',direito:'Direito',notario:'Notário e Registrador'};
-  document.getElementById('info-area-title').textContent='Infográfico — '+nomes[area];
-  document.getElementById('info-area-sub').textContent='Progresso acumulado na área';
+  // Essa mesma tela é usada tanto para Área Única quanto para Painel Geral.
+  let isGeral = (area === 'geral' || !area);
+  
+  const nomes={ciencia:'Ciência de Dados',sefaz:'SEFAZ SP',direito:'Direito',notario:'Notário e Registrador', geral: 'Visão Global'};
+  document.getElementById('info-area-title').textContent = isGeral ? 'Dashboard Global' : `Dashboard - ${nomes[area]}`;
+  document.getElementById('info-area-sub').textContent = isGeral ? 'Panorama Completo de Todas as Áreas' : `Progresso Acumulado nesta Área`;
 
   let dias=0,horas=0,questoes=0,pdfs=0;
+  const areaHoras={ciencia:0,sefaz:0,direito:0,notario:0};
+  const areaQuestoes={ciencia:0,sefaz:0,direito:0,notario:0};
   const registros=[];
+
   Object.entries(state.days).sort((a,b)=>b[0].localeCompare(a[0])).forEach(([k,v])=>{
-    if(v&&v[area]){
-      dias++;
-      horas+=v[area].horas||0;
-      questoes+=v[area].questoes||0;
-      if(v[area].pdf||v[area].apostila) pdfs++;
-      const [y,m,d]=k.split('-');
-      registros.push(`<div style="padding:5px 0;border-bottom:1px solid var(--border)">${d}/${m}/${y} — ${v[area].assunto||'—'} — ${v[area].horas||0}h — ${v[area].questoes||0}q</div>`);
+    if(!v) return;
+    
+    // Coleta dados específicos
+    if(isGeral) {
+        const hasStudy = v.ciencia || v.sefaz || v.direito || v.notario || v.eletiva;
+        if(hasStudy) dias++;
+        horas += (v.horasTotal || 0);
+        ['ciencia','sefaz','direito','notario'].forEach(a => {
+            if(v[a]) { 
+                areaHoras[a] += (v[a].horas||0); 
+                areaQuestoes[a] += (v[a].questoes||0);
+                questoes += (v[a].questoes||0); 
+                if(v[a].pdf || v[a].apostila) pdfs++; 
+            }
+        });
+    } else {
+        if(v[area]) {
+            dias++;
+            horas += v[area].horas || 0;
+            questoes += v[area].questoes || 0;
+            if(v[area].pdf || v[area].apostila) pdfs++;
+            
+            // Popula também a base isolada para o gráfico preencher
+            areaHoras[area] += (v[area].horas||0);
+            areaQuestoes[area] += (v[area].questoes||0);
+            
+            const [y,m,d]=k.split('-');
+            registros.push(`<div style="padding:8px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;"><span>${d}/${m}/${y} — ${v[area].assunto||'—'}</span><span><strong>${v[area].horas||0}h</strong></span></div>`);
+        }
     }
   });
+
+  // Atualiza Cartões Superiores
   const setEl=(id,v)=>{const el=document.getElementById(id);if(el)el.textContent=v;};
-  setEl('info-dias',dias); setEl('info-horas',horas+'h'); setEl('info-questoes',questoes); setEl('info-pdfs',pdfs);
+  setEl('img-horas', horas);
+  setEl('img-dias', dias);
+  setEl('img-questoes', questoes);
+  setEl('img-materiais', pdfs);
+
+  // Progresso (Mockado visualmente baseado em metas de 500h)
+  const metaPct = Math.min(Math.round((horas / 500) * 100), 100);
+  const donutBg = document.getElementById('img-donut-bg');
+  if(donutBg) donutBg.style.background = `conic-gradient(#f49e11 ${metaPct}%, #153250 0)`;
+  setEl('img-donut-val', metaPct + '%');
+
+  // Atualiza Gráfico de Barras com as 4 áreas
+  const maxH = Math.max(...Object.values(areaHoras), 1);
+  const maxQ = Math.max(...Object.values(areaQuestoes), 1);
+  
+  const barsHtml = ['ciencia','sefaz','direito','notario'].map(a => {
+      const ph = Math.round((areaHoras[a] / maxH) * 100);
+      const pq = Math.round((areaQuestoes[a] / maxQ) * 100);
+      // Nomes curtos para a legenda
+      const n = {ciencia:'CD', sefaz:'SF', direito:'DIR', notario:'NOT'}[a];
+      return `
+      <div class="sim-bar-group">
+        <div class="sim-bar-a" style="height:${ph}%;" title="${areaHoras[a]}h"></div>
+        <div class="sim-bar-b" style="height:${pq}%;" title="${areaQuestoes[a]} questões"></div>
+        <div class="sim-bar-lbl">${n}</div>
+      </div>
+      `;
+  }).join('');
+  
+  const barsContainer = document.getElementById('img-bars');
+  if(barsContainer) barsContainer.innerHTML = barsHtml;
+
+  // Atualiza Histórico (só exibe registros se for visão de área específica)
   const rl=document.getElementById('info-registros-list');
-  if(rl) rl.innerHTML=registros.length?registros.join(''):'<span style="color:var(--text-muted)">Nenhum registro ainda.</span>';
-}
-
-// ════════════════════════════════════════════
-// PAINEL GERAL
-// ════════════════════════════════════════════
-function renderPainel(){
-  let dias=0,horas=0,questoes=0,pdfs=0,apostilas=0;
-  const areaHoras={ciencia:0,sefaz:0,direito:0,notario:0};
-  const areaDias={ciencia:0,sefaz:0,direito:0,notario:0};
-  Object.entries(state.days).forEach(([k,v])=>{
-    if(!v) return;
-    const hasStudy=v.ciencia||v.sefaz||v.direito||v.notario||v.eletiva;
-    if(hasStudy) dias++;
-    horas+=(v.horasTotal||0);
-    ['ciencia','sefaz','direito','notario'].forEach(a=>{
-      if(v[a]){ areaHoras[a]+=(v[a].horas||0); areaDias[a]++; questoes+=(v[a].questoes||0); if(v[a].pdf) pdfs++; if(v[a].apostila) apostilas++; }
-    });
-  });
-  let seq=0; const now=new Date();
-  for(let i=0;i<90;i++){
-    const dt=new Date(now); dt.setDate(now.getDate()-i);
-    const k=mkKey(dt.getFullYear(),dt.getMonth()+1,dt.getDate());
-    const v=state.days[k];
-    if(v&&(v.ciencia||v.sefaz||v.direito||v.notario||v.eletiva)) seq++;
-    else if(i>0) break;
+  if(rl) {
+    if(isGeral) {
+       rl.innerHTML = '<span style="color:var(--text-muted)">Na visão global, o histórico de registros específicos fica oculto. Selecione uma área específica para ver a lista de atividades diárias detalhada.</span>';
+    } else {
+       rl.innerHTML = registros.length ? registros.join('') : '<span style="color:var(--text-muted)">Nenhum registro ainda para esta área.</span>';
+    }
   }
-  const setEl=(id,v)=>{const el=document.getElementById(id);if(el)el.textContent=v;};
-  setEl('pan-dias',dias); setEl('pan-horas',horas+'h'); setEl('pan-questoes',questoes);
-  setEl('pan-pdfs',pdfs); setEl('pan-apostilas',apostilas); setEl('pan-seq',seq);
-
-  const maxH=Math.max(...Object.values(areaHoras),1);
-  const areas=[
-    {name:'Ciência de Dados',key:'ciencia',color:'#4f7ef7',dot:'#7fb0ff'},
-    {name:'SEFAZ SP',key:'sefaz',color:'#2a7a4b',dot:'#6dbc8a'},
-    {name:'Direito',key:'direito',color:'#c07030',dot:'#e0a050'},
-    {name:'Notário',key:'notario',color:'#7040c0',dot:'#c090f0'},
-  ];
-  const barsEl=document.getElementById('pan-areas-bars');
-  if(barsEl) barsEl.innerHTML=areas.map(a=>`
-    <div class="area-row">
-      <div class="area-dot" style="background:${a.dot}"></div>
-      <div class="area-name">${a.name}<br><span style="font-size:11px;color:var(--text-muted)">${areaDias[a.key]} dias</span></div>
-      <div class="area-bar-wrap"><div class="area-bar" style="width:${Math.round(areaHoras[a.key]/maxH*100)}%;background:${a.color}"></div></div>
-      <div class="area-val">${areaHoras[a.key]}h</div>
-    </div>`).join('');
-}
-
-// ════════════════════════════════════════════
-// BACKUP
-// ════════════════════════════════════════════
-function exportBackup(){
-  const data=JSON.stringify(state,null,2);
-  const blob=new Blob([data],{type:'application/json'});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');
-  const today=new Date();
-  a.href=url; a.download=`guia_backup_${today.getFullYear()}${String(today.getMonth()+1).padStart(2,'0')}${String(today.getDate()).padStart(2,'0')}.json`;
-  document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
-  showToast('Backup exportado!');
-}
-function importBackup(input){
-  const file=input.files[0]; if(!file) return;
-  const reader=new FileReader();
-  reader.onload=function(e){
-    try{
-      const imported=JSON.parse(e.target.result);
-      if(imported.days!==undefined){ state=Object.assign(state,imported); saveState(); renderCal(); updateSidebarHours(); showToast('Backup restaurado!'); }
-      else showToast('Arquivo inválido.',true);
-    }catch(err){ showToast('Erro ao ler o arquivo.',true); }
-  };
-  reader.readAsText(file); input.value='';
-}
-function showToast(msg,erro){
-  const t=document.getElementById('backup-toast'); if(!t)return;
-  t.textContent=msg; t.style.display='block';
-  t.style.background=erro?'var(--danger-bg)':'var(--success-bg)';
-  t.style.borderColor=erro?'var(--danger)':'var(--success)';
-  t.style.color=erro?'#e07070':'#6dbc8a';
-  setTimeout(()=>t.style.display='none',3000);
 }
 
 // ════════════════════════════════════════════
@@ -1260,23 +1458,26 @@ function showToast(msg,erro){
 // ════════════════════════════════════════════
 checkSession();
 </script>
-  <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
-  import { getFirestore } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
-  
-  const firebaseConfig = {
-    apiKey: "AIzaSyBST6wmECG6Yaue6A4vmztaC_9JZ_gMwpI",
-    authDomain: "gerenciador-de-estudos-83503.firebaseapp.com",
-    projectId: "gerenciador-de-estudos-83503",
-    storageBucket: "gerenciador-de-estudos-83503.firebasestorage.app",
-    messagingSenderId: "1005919046437",
-    appId: "1:1005919046437:web:dca3d5a8c0e0b041c928cc",
-    measurementId: "G-8LBJ2GEMVW"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  window.db = getFirestore(app);
-  console.log("Firebase conectado com sucesso!");
-</script>
 </body>
+  // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBST6wmECG6Yaue6A4vmztaC_9JZ_gMwpI",
+  authDomain: "gerenciador-de-estudos-83503.firebaseapp.com",
+  projectId: "gerenciador-de-estudos-83503",
+  storageBucket: "gerenciador-de-estudos-83503.firebasestorage.app",
+  messagingSenderId: "1005919046437",
+  appId: "1:1005919046437:web:dca3d5a8c0e0b041c928cc",
+  measurementId: "G-8LBJ2GEMVW"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 </html>
