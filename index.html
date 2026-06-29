@@ -1459,25 +1459,22 @@ function renderInfografico(area){
 checkSession();
 </script>
 </body>
-  // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+  <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+  
+  const firebaseConfig = {
+    apiKey: "AIzaSyBST6wmECG6Yaue6A4vmztaC_9JZ_gMwpI",
+    authDomain: "gerenciador-de-estudos-83503.firebaseapp.com",
+    projectId: "gerenciador-de-estudos-83503",
+    storageBucket: "gerenciador-de-estudos-83503.firebasestorage.app",
+    messagingSenderId: "1005919046437",
+    appId: "1:1005919046437:web:dca3d5a8c0e0b041c928cc",
+    measurementId: "G-8LBJ2GEMVW"
+  };
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyBST6wmECG6Yaue6A4vmztaC_9JZ_gMwpI",
-  authDomain: "gerenciador-de-estudos-83503.firebaseapp.com",
-  projectId: "gerenciador-de-estudos-83503",
-  storageBucket: "gerenciador-de-estudos-83503.firebasestorage.app",
-  messagingSenderId: "1005919046437",
-  appId: "1:1005919046437:web:dca3d5a8c0e0b041c928cc",
-  measurementId: "G-8LBJ2GEMVW"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+  const app = initializeApp(firebaseConfig);
+  window.db = getFirestore(app);
+  console.log("Firebase conectado com sucesso!");
+</script>
 </html>
